@@ -29,7 +29,6 @@ jobs:
        username: ubuntu  # The SSH username for your EC2 instance
        key: ${{ secrets.SSH_PRIVATE_KEY }}  # Your SSH private key (stored as a secret)
        script: |
-          sudo usermod -aG docker $USER
-          docker pull ${{ secrets.DOCKER_USERNAME }}/hello-world
-          docker run -d -p 80:80 --name my-app ${{ secrets.DOCKER_USERNAME }}/hello-world
+          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/hello-world
+          sudo docker run -d -p 80:80 --name my-app ${{ secrets.DOCKER_USERNAME }}/hello-world
 
