@@ -30,6 +30,5 @@ jobs:
        key: ${{ secrets.SSH_PRIVATE_KEY }}  # Your SSH private key (stored as a secret)
        script: |
           docker pull ${{ secrets.DOCKER_USERNAME }}/hello-world
-                        # sudo usermod -aG docker $USER 
           docker run -d -p 80:80 --name my-app ${{ secrets.DOCKER_USERNAME }}/hello-world
 
