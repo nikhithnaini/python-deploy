@@ -18,3 +18,7 @@ jobs:
       run: docker build . --file Dockerfile --tag hello-world
     - name: Log in to Docker Hub
       run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASS }}
+    - name: Push the Docker image to Docker Hub
+      run: |
+           docker tag hello-world ${DOCKERHUB_USERNAME}/hello-world
+           docker push ${DOCKERHUB_USERNAME}/hello-world
